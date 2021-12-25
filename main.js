@@ -1,24 +1,14 @@
-const menuIcon = document.getElementById("menu-icon");
-const slideoutMenu = document.getElementById("slideout-menu");
-const searchIcon = document.getElementById("search-icon");
-const searchBox = document.getElementById("searchbox");
+var acc = document.getElementsByClassName("accordion");
+var i;
 
-searchIcon.addEventListener('click', function () {
-  if (searchBox.style.top == '72px') {
-    searchBox.style.top = '24px';
-    searchBox.style.pointerEvents = 'none';
-  } else {
-    searchBox.style.top = '72px';
-    searchBox.style.pointerEvents = 'auto';
-  }
-});
-
-menuIcon.addEventListener('click', function () {
-  if (slideoutMenu.style.opacity == "1") {
-    slideoutMenu.style.opacity = '0';
-    slideoutMenu.style.pointerEvents = 'none';
-  } else {
-    slideoutMenu.style.opacity = '1';
-    slideoutMenu.style.pointerEvents = 'auto';
-  }
-})
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
